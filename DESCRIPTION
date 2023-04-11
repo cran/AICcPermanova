@@ -1,6 +1,6 @@
 Package: AICcPermanova
 Title: Model Selection of PERMANOVA Models Using AICc
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Derek", family ="Corcoran",  
     email = "derek.corcoran.barrios@gmail.com", role = c("aut", "cre"))
@@ -18,11 +18,14 @@ Encoding: UTF-8
 RoxygenNote: 7.2.3
 Imports: broom, car, data.table, doParallel, dplyr, foreach, furrr,
         future, parallel, stats, stringr, tidyr, vegan
-URL: https://github.com/Sustainscapes/AICcPerm
+URL: https://github.com/Sustainscapes/AICcPerm,
+        https://sustainscapes.github.io/AICcPerm/
 BugReports: https://github.com/Sustainscapes/AICcPerm/issues
+Suggests: covr, testthat (>= 3.0.0)
+Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2023-04-05 00:13:03 UTC; au687614
+Packaged: 2023-04-10 05:13:50 UTC; au687614
 Author: Derek Corcoran [aut, cre]
 Maintainer: Derek Corcoran <derek.corcoran.barrios@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-04-05 18:26:04 UTC
+Date/Publication: 2023-04-11 13:40:06 UTC

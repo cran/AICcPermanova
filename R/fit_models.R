@@ -65,8 +65,9 @@ fit_models <- function(all_forms,
   }
 
   meta_data <- all_forms
-  meta_data$AICc <- NA
-  meta_data$max_vif <- NA
+  if(!("max_vif" %in% colnames(meta_data))){
+    meta_data$max_vif <- NA
+  }
   vegetation_data = veg_data
 
   # Check for missing values
@@ -111,15 +112,19 @@ fit_models <- function(all_forms,
 
 
 
-      Temp$AICc <- tryCatch(
-        expr = AICcPermanova::AICc_permanova2(Model)$AICc,
+      Temp <- tryCatch(
+        expr = cbind(Temp, AICcPermanova::AICc_permanova2(Model)),
         error = function(e) NA
       )
 
+
+    if(is.na(Temp$max_vif)){
       Temp$max_vif <- tryCatch(
         expr = VIF(lm(as.formula(stringr::str_replace_all(Temp$form[1], "Distance ", "y")), data = Response)),
         error = function(e) NA
       )
+
+    }
 
       Rs <- tryCatch(
         {
